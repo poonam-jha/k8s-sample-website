@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: website-deployment
+  labels:
+    app: website-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: website-deployment
+  template:
+    metadata:
+      labels:
+        app: website-deployment
+    spec:
+      containers:
+      - name: website-deployment
+        image: poonam40/myfirstwebsite
+        ports:
+        - containerPort: 8090
